@@ -1,6 +1,6 @@
 import Todo from './Todo.js'
 function TodoList(props){
-    const {todos, addTodo, completeTodo, editTodoText} = props
+    const {todos, addTodo, completeTodo, editTodoText, deleteTodo} = props
     console.log('from todolist', todos);
     return (
         <div>
@@ -18,7 +18,8 @@ function TodoList(props){
                 {todos.filter(item => !item.completed)
                 .map(item => <Todo todo ={item}
                     completeTodo={completeTodo}
-                    editTodoText={editTodoText}/>)}
+                    editTodoText={editTodoText}
+                    deleteTodo= {deleteTodo}/>)}
             </ul>
             
             <h2>Completed todos</h2>
@@ -26,7 +27,8 @@ function TodoList(props){
                 {todos.filter(item=> item.completed)
                 .map(item => <Todo todo = {item} 
                     completeTodo={completeTodo}
-                    editTodoText={editTodoText}/>)}
+                    editTodoText={editTodoText}
+                    deleteTodo= {deleteTodo}/>)}
             </ul>
 
 

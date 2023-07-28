@@ -38,6 +38,14 @@ function App() {
   }
 
 
+  const deleteTodo = (id) => {
+    const todosCopy=[...todos]
+    const indexOfTodo = todosCopy.findIndex(item => item.id === id)
+    todosCopy.splice(indexOfTodo, 1)
+    setTodos([...todosCopy])
+  }
+
+
   return (
     <div className="App">
       <h1>Todo App</h1>
@@ -46,6 +54,7 @@ function App() {
         todos={todos} addTodo={addTodo}
         completeTodo={completeTodo}
         editTodoText={editTodoText}
+        deleteTodo={deleteTodo}
       />
     </div>
   );

@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 function Todo(props){
-    const {todo, completeTodo, editTodoText} = props;
+    const {todo, completeTodo, editTodoText, deleteTodo} = props;
 
     const [showInput, setShowInput] = useState(false)
 
@@ -23,6 +23,7 @@ function Todo(props){
                     onChange={() => completeTodo(todo.id)}
                 />
             </label>
+            <button onClick ={() => {deleteTodo(todo.id)}}>Delete</button>
         </div>
     )
 
