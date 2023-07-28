@@ -1,12 +1,20 @@
-
+import { useState } from "react";
 
 function Todo(props){
     const {todo, completeTodo, editTodoText} = props;
+
+    const [showInput, setShowInput] = useState(false)
+
     return (
         <div>
-            <li>{todo.text}</li>
-            <input type='text' onKeyDown={(e) => e.key === 'Enter' && editTodoText(todo.id, e)}/>
-            
+            <li onClick={() => setShowInput(!showInput)}>{todo.text}</li>
+            <input type='text' 
+            onKeyDown={(e) =>{ if (e.key === 'Enter') {
+                editTodoText(todo.id, e);
+                setShowInput(false)
+            }}}
+            style={{display: showInput ? 'block' : 'none'}}/>
+
             <label>
                 Complete
                 <input
