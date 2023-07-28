@@ -21,7 +21,10 @@ function App() {
 
 
   const completeTodo = (id) => {
-    console.log(id);
+    const todosCopy = [...todos]
+    const indexOfTodo = todosCopy.findIndex(item => item.id === id)
+    todosCopy[indexOfTodo].completed = !todosCopy[indexOfTodo].completed
+    setTodos([...todosCopy]);
   }
 
   return (
