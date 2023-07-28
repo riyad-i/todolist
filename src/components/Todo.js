@@ -1,10 +1,12 @@
 
 
 function Todo(props){
-    const {todo, completeTodo} = props;
+    const {todo, completeTodo, editTodoText} = props;
     return (
         <div>
             <li>{todo.text}</li>
+            <input type='text' onKeyDown={(e) => e.key === 'Enter' && editTodoText(todo.id, e)}/>
+            
             <label>
                 Complete
                 <input
