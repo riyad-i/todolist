@@ -14,7 +14,7 @@ function TodoList(props){
             <>
             <h2>Todos Items</h2>
             
-            <ul>
+            <ul className="todolist">
                 {todos.filter(item => !item.completed)
                 .map(item => <Todo todo ={item}
                     completeTodo={completeTodo}
@@ -23,7 +23,7 @@ function TodoList(props){
             </ul>
             
             <h2>Completed todos</h2>
-            <ul>
+            <ul className="todolist">
                 {todos.filter(item=> item.completed)
                 .map(item => <Todo todo = {item} 
                     completeTodo={completeTodo}
